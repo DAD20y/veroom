@@ -1,0 +1,5 @@
+[
+  { "name": "Laptop", "price": "950", "model": "models/demo.glb", "pos": [-1,0,-3] },
+  { "name": "Phone", "price": "600", "model": "models/demo.glb", "pos": [1,0,-3] },
+  { "name": "Chair", "price": "150", "model": "models/demo.glb", "pos": [0,0,-5] }
+]

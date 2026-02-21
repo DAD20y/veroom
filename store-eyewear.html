@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>VEROOM | متجر النظارات</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    body{font-family:"Cairo",system-ui,-apple-system,"Segoe UI",Roboto,Arial}
+    .products{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:14px}
+    .p{grid-column:span 3}
+    .ph{height:170px;border-radius:18px;border:1px solid var(--line);
+        background: radial-gradient(200px 120px at 30% 20%, rgba(77,163,255,.25), transparent 65%),
+                    linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.70));
+        display:grid;place-items:center;font-weight:1000;color:rgba(11,27,43,.75)}
+    .meta{display:flex;justify-content:space-between;align-items:center;gap:10px}
+    @media (max-width:1020px){.p{grid-column:span 6}}
+    @media (max-width:560px){.p{grid-column:span 12}}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <div class="vmark"><span>V</span></div>
+        <div>
+          <div style="font-size:14px;line-height:1;font-weight:1000">VEROOM</div>
+          <div class="kicker">EvoVision • متجر النظارات</div>
+        </div>
+      </div>
+      <div class="btnRow">
+        <a class="pill" href="index.html">الرئيسية</a>
+        <a class="pill primary" href="room-eyewear.html">غرفة النظارات 3D</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="hero">
+      <div class="bg"></div>
+      <div class="content">
+        <div>
+          <h1>نظارات طبية وشمسية — جرّبها الآن</h1>
+          <p>اختر منتجًا واضغط «جرّبه الآن» للانتقال إلى غرفة التجربة ثلاثية الأبعاد (WebGL) — تعمل على الكمبيوتر والجوال.</p>
+        </div>
+        <div class="btnRow">
+          <a class="btn primary" href="room-eyewear.html">فتح الغرفة</a>
+          <a class="btn" href="index.html">رجوع</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="products" id="grid"></section>
+  </main>
+
+  <div class="toast" id="toast">—</div>
+
+  <script>
+    const catalog = [
+      {id:'g1', name:'نظارة طبية كلاسيكية', price:'520 ر.س', type:'طبية'},
+      {id:'g2', name:'نظارة طيران شمسية',   price:'690 ر.س', type:'شمسية'},
+      {id:'g3', name:'نظارة دائرية طبية',   price:'480 ر.س', type:'طبية'},
+      {id:'g4', name:'نظارة مستطيلة شمسية', price:'640 ر.س', type:'شمسية'},
+      {id:'g5', name:'نظارة شفافة طبية',    price:'450 ر.س', type:'طبية'},
+      {id:'g6', name:'نظارة فاخرة شمسية',   price:'880 ر.س', type:'شمسية'},
+      {id:'g7', name:'نظارة شمسية عريضة',   price:'720 ر.س', type:'شمسية'},
+      {id:'g8', name:'نظارة شمسية مستديرة', price:'610 ر.س', type:'شمسية'},
+    ];
+    const grid = document.getElementById('grid');
+    grid.innerHTML = catalog.map(p=>`
+      <div class="card pad p">
+        <div class="ph">3D Preview</div>
+        <div class="meta" style="margin-top:10px">
+          <div>
+            <div class="title" style="font-size:14px">${p.name}</div>
+            <div class="sub">${p.type} • ${p.price}</div>
+          </div>
+          <a class="btn primary" href="room-eyewear.html?product=${p.id}">جرّبه الآن</a>
+        </div>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>
